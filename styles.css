@@ -1,0 +1,270 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Background gradient */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+        radial-gradient(600px at 20% 30%, rgba(0, 120, 255, 0.12), transparent 70%),
+        radial-gradient(600px at 80% 70%, rgba(255, 0, 120, 0.12), transparent 70%);
+    z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 14px 28px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+}
+
+.nav-logo {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #333;
+    transition: 0.25s ease;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.nav-links a:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #111;
+}
+
+/* Sections */
+section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Home Section */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.welcome-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#home h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.welcome-subtext {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #555;
+}
+
+/* About Section */
+#about {
+    min-height: 80vh;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
+}
+
+.about-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.about-photo {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+#about h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+#about p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #444;
+}
+
+/* Projects Section */
+#projects {
+    padding-top: 100px;
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.project-tile {
+    width: 260px;
+    height: 180px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.project-tile a {
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+}
+
+/* Contact Section */
+#contact {
+    min-height: 80vh;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-links a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    color: #222;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-links a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 20px;
+        width: 90%;
+    }
+    
+    .nav-links {
+        gap: 16px;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 5px 8px;
+    }
+
+    #home h1 {
+        font-size: 34px;
+    }
+    
+    .welcome-subtext {
+        font-size: 18px;
+    }
+
+    .project-tile {
+        width: 90%;
+        height: 160px;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-links a {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        gap: 10px;
+    }
+    
+    #home h1 {
+        font-size: 28px;
+    }
+    
+    .welcome-subtext {
+        font-size: 16px;
+    }
+}
